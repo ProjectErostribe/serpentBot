@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        SerpentBot Version 2
+    </title>
+    <link rel="shortcut icon" href="/images/logo-mb.png" type="image/png">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="../serpentBot.css">
+    <link rel="stylesheet" href="../serpentBot2.css">
+    <script src="js/userAuth.js"></script>
+</head>
+
+<body>
+ 
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <label>Serpent<span style="color:red;">Bot</span> Panel</label>
+            <div class="sidebar-close" id="sidebar-close">
+                <i class='bx bx-left-arrow-alt'></i>
+            </div>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-user-info">
+                <div class="sidebar-user-name">
+
+                </div>
+            </div>
+            <button class="btn btn-outline" onclick="destroySesh()">
+                <i class='bx bx-log-out bx-flip-horizontal'></i>
+            </button>
+        </div>
+        <!-- SIDEBAR MENU -->
+        <ul class="sidebar-menu">
+            <li>
+                <a href="../serpentbotui.html" class="">
+                    <i class='bx bx-chart'></i>
+                    <span>bot control panel</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-user-circle'></i>
+                    <span>accounts</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a class="" href="profile.html">
+                            edit profiles
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ipChecker.html">
+                            iP checker™
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="contact.html" class="active">
+                    <i class='bx bx-chat'></i>
+                    <span>contact support</span>
+                </a>
+            </li>
+            <!--
+            <li>
+                <a href="calendar.html">
+                    <i class='bx bx-calendar'></i>
+                    <span>drop calendar</span>
+                </a>
+            </li>
+            -->
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-cog'></i>
+                    <span>settings</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#" class="darkmode-toggle" id="darkmode-toggle">
+                            darkmode
+                            <span class="darkmode-switch"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="main-title">
+                Serpent<span style="color:red;">Bot</span>
+            </div>
+        </div>
+        <div class="main-content"> <!-- Inner Content Start -->
+            <div class="row">
+                <div class="col-12">
+                    <!-- Control Panel - Foot Locker -->
+                    <div class="box">
+                        <div class="box-header">
+                            Tech Support
+                        </div>
+                        <div class="box-body overflow-scroll">
+                            <p>
+                                Hours of Operations: 10am - 6pm EST - Monday - Thursday
+                                <br>
+                                <br>
+                                Contact via email: team@serpentaio.com
+                                <br>
+                                Contact via WhatsApp: +1 (202) 719-6115
+                                <br>
+                                <br>
+                                For tutorials on how to use SerpentBot, please check out youtube channel https://www.youtube.com/channel/UC4YGLCIKFbP9phgncRbsUCw
+                                <br>
+                                <br>
+                                Please consider subscribing to our email updates to ensure that you're running the most up to date version of SerpentBot, and to keep up with cook group activities. We will have our reddit and discord in the first quarter of 2022!
+                            </p>
+                        </div>
+                    </div>
+                    <!-- END Control Panel -->
+                </div>
+            </div>
+        </div> <!-- Inner Content End -->
+    </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+
+    <div class="overlay"></div>
+
+    <!-- SCRIPT -->
+    <!-- APEX CHART -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- APP JS -->
+    <script src="../adminboard.js"></script>
+    <script src="../js/ux_functs.js"></script>
+    <!-- script src="js/botpieces.js"></script --> <!-- Should only run when button is pressed -->
+
+</body>
+
+</html>

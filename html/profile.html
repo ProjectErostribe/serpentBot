@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        SerpentBot Version 2
+    </title>
+    <link rel="shortcut icon" href="/images/logo-mb.png" type="image/png">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="../serpentBot.css">
+    <link rel="stylesheet" href="../serpentBot2.css">
+    <script src="/js/userAuth.js"></script>
+</head>
+
+<body onload="dataLoad()">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <label>Serpent<span style="color:red;">Bot</span> Panel</label>
+            <div class="sidebar-close" id="sidebar-close">
+                <i class='bx bx-left-arrow-alt'></i>
+            </div>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-user-info">
+                <div class="sidebar-user-name">
+
+                </div>
+            </div>
+            <button class="btn btn-outline" onclick="destroySesh()">
+                <i class='bx bx-log-out bx-flip-horizontal'></i>
+            </button>
+        </div>
+        <!-- SIDEBAR MENU -->
+        <ul class="sidebar-menu">
+            <li>
+                <a href="../serpentbotui.html" class="">
+                    <i class='bx bx-chart'></i>
+                    <span>bot control panel</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-user-circle'></i>
+                    <span>accounts</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a class="active" href="#">
+                            edit profiles
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ipChecker.html">
+                            iP checker™
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="contact.html">
+                    <i class='bx bx-chat'></i>
+                    <span>contact support</span>
+                </a>
+            </li>
+            <!--
+            <li>
+                <a href="calendar.html">
+                    <i class='bx bx-calendar'></i>
+                    <span>drop calendar</span>
+                </a>
+            </li>
+            -->
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-cog'></i>
+                    <span>settings</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#" class="darkmode-toggle" id="darkmode-toggle">
+                            darkmode
+                            <span class="darkmode-switch"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="main-title">
+                Serpent<span style="color:red;">Bot</span>
+                
+            </div>
+        </div>
+        <div class="main-content"> <!-- Inner Content Start -->
+            <div class="row">
+                <div class="col-12">
+                    <!-- Your Profile TABLE -->
+                    <div class="box">
+                        <div class="box-header">
+                            Your Profiles
+                            <input class="crtprof" type="button" value="+ Create Profile" onclick="addprof();">
+                        </div>
+                        <div class="box-body overflow-scroll">
+                            <table id="wholeTable">
+                                <thead>
+                                    <tr>
+                                        <th>Handler ID</th>
+                                        <th>Setup Name</th>
+                                        <th>Proxy IP Address</th>
+                                        <th></th> <!-- Edit Button Border Spacing -->
+                                        <th></th> <!-- Delete Button Border Spacing -->
+                                    </tr>
+                                </thead>
+                                <tbody class="tableBod">
+                                    <!-- this is now controlled by the ux_func.js file
+                                    <tr class="dataBlock"> 
+                                        <td class="tdHandler"></td>
+                                        <td>
+                                            <div class="order-owner">
+                                                <span class="tdSetupname"></span>
+                                            </div>
+                                        </td>
+                                        <td class="tdProxy"></td>
+                                        <td>
+                                            <input class="editBtn" type="button" value="Edit" onclick="open_edit();">
+                                            <input class="deleteBtn" type="button" value="- Remove" onclick="deleteRow(this);">
+                                        </td> 
+                                    </tr>
+                                -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="pBox" onload="_editOnload();">
+                        <form action="post">
+                            <input class="setupName" placeholder="Give This Setup a Name" type="text">
+                            <label class="handlerId" for="">h_id</label>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="cln-row">
+                                <input class="fName" placeholder="First Name" type="text">
+                                <input class="lName" placeholder="Last Name" type="text">
+                                <input class="email" placeholder="Email Address" type="text">
+                                <input class="phonenum" placeholder="Phone Number" type="text">
+                            </div>
+                            <div class="cln-row">
+                                <input class="address" placeholder="Address" type="text">
+                                <input class="addresstwo" placeholder="Apt, Room, Etc" type="text">
+                                <input class="city" placeholder="City" type="text">
+                                <input class="zipcode" placeholder="Zipcode" type="text">
+                                <input class="country" placeholder="State" type="text">
+                            </div>
+                            <div class="cln-row">
+                                <input class="cardnum" placeholder="Card Number" type="text">
+                                <input class="expiry_month" placeholder="Exp (MM)" type="text">
+                                <input class="expiry_year" placeholder="Exp (YY)" type="text">
+                                <input class="cvc" placeholder="CVC" type="text">
+                            </div>
+                            <div class="cln-row">
+                                <input class="ipproxy" placeholder="IP Proxy Address" type="text">
+                                <input class="saveInfo" type="button" value="Save" onclick="save_prof()">
+                                <input class="cancelBtn" type="button" value="Cancel" onclick="close_prof();">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="pBox-edit"> <!--Edit Profile Information-->
+                        <form action="post">
+                            <input class="setupName2" placeholder="Give This Setup a Name" type="text">
+                            <label class="edit_handlerId" for="">h_id</label>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="cln-row">
+                                <input class="fName2" placeholder="First Name" type="text">
+                                <input class="lName2" placeholder="Last Name" type="text">
+                                <input class="email2" placeholder="Email Address" type="text">
+                                <input class="phonenum2" placeholder="Phone Number" type="text">
+                            </div>
+                            <div class="cln-row">
+                                <input class="address2" placeholder="Address" type="text">
+                                <input class="address2_2" placeholder="Apt, Room, Etc" type="text">
+                                <input class="city2" placeholder="City" type="text">
+                                <input class="zipcode2" placeholder="Zipcode" type="text">
+                                <input class="country2" placeholder="State" type="text">
+                            </div>
+                            <div class="cln-row">
+                                <input class="cardnum2" placeholder="Card Number" type="text">
+                                <input class="expiry_month2" placeholder="Exp (MM)" type="text">
+                                <input class="expiry_year2" placeholder="Exp (YY)" type="text">
+                                <input class="cvc2" placeholder="CVC" type="text">
+                            </div>
+                            <div class="cln-row">
+                                <input class="ipproxy2" placeholder="IP Proxy Address" type="text">
+                                <input class="saveInfo" type="button" value="Save" onclick="edit_prof(this.className);">
+                                <input class="cancelBtn" type="button" value="Cancel" onclick="cancel_edit();">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- END ORDERS TABLE -->
+                </div>
+            </div>
+        </div> <!-- Inner Content End -->
+    </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+
+    <div class="overlay"></div>
+
+    <!-- SCRIPT -->
+    <!-- APEX CHART -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- APP JS -->
+    <script src="../adminboard.js"></script>
+    <script src="../js/ux_functs.js"></script>
+    <!-- script src="js/botpieces.js"></script --> <!-- Should only run when button is pressed -->
+
+</body>
+
+</html>

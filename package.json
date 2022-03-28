@@ -1,0 +1,23 @@
+{
+  "name": "serpentbot",
+  "version": "1.2.5",
+  "description": "serpent bot allows users to use automated tech to secure limited released items",
+  "main": "dashboard.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "RaiT",
+  "license": "ISC",
+  "dependencies": {
+    "electron-packager": "^15.4.0",
+    "node-cron": "^3.0.0",
+    "node-schedule": "^2.0.0",
+    "puppeteer": "^10.4.0",
+    "set-ip-address": "^1.1.0",
+    "sqlite3": "^5.0.2",
+    "tedious": "^14.0.0"
+  },
+  "devDependencies": {
+    "electron": "^8.2.5"
+  }
+}

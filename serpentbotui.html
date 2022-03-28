@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        SerpentBot Version 2
+    </title>
+    <link rel="shortcut icon" href="/images/logo-mb.png" type="image/png">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="serpentBot.css">
+    <link rel="stylesheet" href="serpentBot2.css">
+    <script src="js/userAuth.js"></script>
+</head>
+
+<body onload="bootup(); loadInc();">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <label>Serpent<span style="color:red;">Bot</span> Panel</label>
+            <div class="sidebar-close" id="sidebar-close">
+                <i class='bx bx-left-arrow-alt'></i>
+            </div>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-user-info">
+                <div class="sidebar-user-name">
+
+                </div>
+            </div>
+            <button class="btn btn-outline" onclick="endSesh()">
+                <i class='bx bx-log-out bx-flip-horizontal'></i>
+            </button>
+        </div>
+        <!-- SIDEBAR MENU -->
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#" class="active">
+                    <i class='bx bx-chart'></i>
+                    <span>bot control panel</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-user-circle'></i>
+                    <span>accounts</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a class="editProf" href="html/profile.html">
+                            edit profiles
+                        </a>
+                    </li>
+                    <li>
+                        <a href="html/ipChecker.html">
+                            iP checker™
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="html/contact.html">
+                    <i class='bx bx-chat'></i>
+                    <span>contact support</span>
+                </a>
+            </li>
+            <!--
+            <li>
+                <a href="calendar.html">
+                    <i class='bx bx-calendar'></i>
+                    <span>drop calendar</span>
+                </a>
+            </li>
+            -->
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-cog'></i>
+                    <span>settings</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="#" class="darkmode-toggle" id="darkmode-toggle">
+                            darkmode
+                            <span class="darkmode-switch"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="main-title">
+                Serpent<span style="color:red;">Bot</span>
+                <input class="linkInput" placeholder="Insert or Paste Item URL Here" type="text" required>
+            </div>
+        </div>
+        <div class="main-content"> <!-- Inner Content Start -->
+            <div class="row">
+                <div class="col-12">
+                    <!-- Control Panel - Foot Locker -->
+                    <div class="box">
+                        <div class="box-header">
+                            Control Panel
+                        </div>
+                        <div class="box-body overflow-scroll">
+                            <label for="" class="serpentResponse">Serpent Response: Bot "Fast" speed works best on 500+ MBPS Bandwidth</label>
+                            <label for="" class="incrementId">0</label> 
+                            <br>
+                            <br>
+                            <select name="account" id="accountSelect">
+                                <option value="placeholder">Select Profile</option>
+                            </select>
+                            <input class="startBtn" value="Run Task" type="button" value="" onclick="awakenBot();">
+                            <select name="size" id="sizeSelect">
+                                <option value="placeholder">Select Size</option>
+                            </select>
+                            <select onchange="speedChange()" name="speed" id="paceSelect">
+                                <option value="placeholder">Select Bot Speed</option>
+                            </select>
+                            <select onchange="" name="schedular" id="taskSched">
+                                <option value="placeholder">Schedule Task</option>
+                            </select>
+                            <div class="waiting">
+                                <label for="" class="message1">The bot is now completing tasks, please do not leave this screen</label>
+                                <label for="" class="theClock">499</label>
+                                <p class='sn-1'>You may minimize this window if needed.</p>
+                                <input type="button" value="Refresh to see results" class="refreshBtn" onclick="refreshBot()">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Control Panel -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- RA TABLE -->
+                    <div class="box">
+                        <div class="box-header">
+                            Recent Attempts
+                        </div>
+                        <div class="box-body overflow-scroll">
+                            <table id="ra-table" onchange="location.reload()">
+                                <thead>
+                                    <tr>
+                                        <th>Attempt</th>
+                                        <th>Retail Site</th>
+                                        <th>Date</th>
+                                        <th>Task Status</th>
+                                        <th>Item</th>
+                                        <th>Order Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="at-bod">
+                                <!--
+                                    <tr>
+                                        <td><span class="attId">#2345</span></td>
+                                        <td>
+                                            <div class="order-owner">
+                                                <span>Foot Locker</span>
+                                            </div>
+                                        </td>
+                                        <td>2021-05-09</td>
+                                        <td>
+                                            <span class="bot-status">
+                                                Ready
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="target-item">
+                                                <span>Pending</span>
+                                            </div>
+                                        </td>
+                                        <td>$123.45</td>
+                                    </tr>
+                                -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END ORDERS TABLE -->
+                </div>
+            </div>
+            <!-- Edit Profiles -->
+            <div class="row-two">
+                <div class="col-12">
+                    <div class="box">
+                        <div class="box-header">
+                            Your Profiles
+                        </div>
+                        <div class="box-body overflow-scroll">
+                            <label for="" class="serpentResponse">Serpent Response: Bot "Fast" speed works best on 500+ MBPS Bandwidth</label>
+                            <table class="list-view">
+                                <td></td>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Settings -->
+            <div class="row-three"></div>
+
+            <!-- IP Checker -->
+            <div class="row-four"></div>
+
+            <!-- Contact Support -->
+            <div class="row-five"></div>
+
+            <!-- Drop Calendar -->
+            <div class="row-six"></div>
+
+        </div> <!-- Inner Content End -->
+    </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+
+    <div class="overlay"></div>
+
+    <!-- SCRIPT -->
+    <!-- APEX CHART -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- APP JS -->
+    <script src="adminboard.js"></script>
+    <script src="js/ux_functs2.js"></script>
+    <!-- script src="js/botpieces.js"></script --> <!-- Should only run when button is pressed -->
+
+</body>
+
+</html>
