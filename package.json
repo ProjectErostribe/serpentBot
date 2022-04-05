@@ -7,7 +7,7 @@
     "start": "electron ."
   },
   "author": "Razan Analytics, Inc",
-  "license": "ISC",
+  "license": "Proprietary",
   "dependencies": {
     "electron-packager": "^15.4.0",
     "node-cron": "^3.0.0",
