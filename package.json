@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "author": "RaiT",
+  "author": "Razan Analytics, Inc",
   "license": "ISC",
   "dependencies": {
     "electron-packager": "^15.4.0",
