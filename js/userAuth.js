@@ -17,8 +17,8 @@ let save = new sqlite3.Database('./sql/savekey.db', sqlite3.OPEN_READWRITE, (err
 const config = {
   authentication: {
     options: {
-      userName: "", //For security, import string and funnel through a constant
-      password: ""  //For security, import string and funnel through a constant
+      userName: "", //For security, pull objects from .env
+      password: ""  //For security, pull objects from .env
     },
     type: "default"
   },
